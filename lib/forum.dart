@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:practice1/assets/colors.dart';
 
 class ForumPage extends StatefulWidget {
-  ForumPage({Key key, this.title}) : super(key: key);
+  ForumPage({Key? key, required this.title}) : super(key: key);
 
   final String title;
 
@@ -86,11 +86,11 @@ class _ForumPageState extends State<ForumPage> {
 
   static final listItemsData = [
     new ListEntry("Forum 1", "test", "description 1", 54, 2, true),
-    new ListEntry("Forum 2", "test", "description 2",  154, 3,false),
+    new ListEntry("Forum 2", "test", "description 2", 154, 3, false),
     new ListEntry("Forum 3", "test", "description 3", 971, 0, false),
-    new ListEntry("Forum 4", "test", "description 4",  124, 2,true),
-    new ListEntry("Forum 5", "test", "description 5",  412, 5,true),
-    new ListEntry("Forum 6", "test", "description 6",  12, 1,true),
+    new ListEntry("Forum 4", "test", "description 4", 124, 2, true),
+    new ListEntry("Forum 5", "test", "description 5", 412, 5, true),
+    new ListEntry("Forum 6", "test", "description 6", 12, 1, true),
   ];
   var listView = new ListView.builder(
     itemBuilder: (BuildContext context, int index) =>
@@ -123,6 +123,7 @@ class _ForumPageState extends State<ForumPage> {
       ),
     );
   }
+
   void _onSearchPressed() {
     Navigator.pop(context);
   }
@@ -136,7 +137,8 @@ class ListEntry {
   final int responses;
   final bool answered;
 
-  ListEntry(this.title, this.icon, this.description, this.views, this.responses, this.answered);
+  ListEntry(this.title, this.icon, this.description, this.views, this.responses,
+      this.answered);
 }
 
 class CategoryIcon extends StatelessWidget {
@@ -164,8 +166,7 @@ class CategoryIcon extends StatelessWidget {
     );
   }
 
-  static void _onSearchPressed() {
-  }
+  static void _onSearchPressed() {}
 }
 
 class EntryItem extends StatelessWidget {
@@ -192,11 +193,14 @@ class EntryItem extends StatelessWidget {
         trailing: new Row(
           verticalDirection: VerticalDirection.up,
           children: <Widget>[
-            new CategoryIcon(Icons.remove_red_eye, entry.views.toString(), false),
+            new CategoryIcon(
+                Icons.remove_red_eye, entry.views.toString(), false),
             new CategoryIcon(Icons.comment, entry.responses.toString(), false),
           ],
         ),
-        onTap: () {Navigator.pushNamed(context, '/forum/1');},
+        onTap: () {
+          Navigator.pushNamed(context, '/forum/1');
+        },
       ),
     );
   }

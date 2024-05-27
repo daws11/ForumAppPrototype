@@ -1,0 +1,1 @@
+ D:\\jokyan\\forumappprototype\\.dart_tool\\flutter_build\\275a868b7398e5eb63191530f261fea9\\native_assets.yaml: 

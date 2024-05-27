@@ -9,15 +9,17 @@ void main() => runApp(new MyApp());
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return new MaterialApp(
+    return MaterialApp(
       title: 'Forum',
-      theme: new ThemeData(
+      theme: ThemeData(
         primarySwatch: AppColorsTheme.myTheme.primarySwatch,
       ),
       routes: <String, WidgetBuilder>{
-         '/':      (BuildContext context) => new LoginPage(),
-         '/forum': (BuildContext context) => new ForumPage(title: 'Forum',),
-         '/forum/1': (BuildContext context) => new ForumDetailPage(),
+        '/': (BuildContext context) => new LoginPage(),
+        '/forum': (BuildContext context) => new ForumPage(
+              title: 'Forum',
+            ),
+        '/forum/1': (BuildContext context) => new ForumDetailPage(),
       },
       initialRoute: '/',
     );
